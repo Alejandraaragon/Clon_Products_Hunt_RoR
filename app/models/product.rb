@@ -10,4 +10,13 @@
 #  updated_at  :datetime         not null
 #
 class Product < ApplicationRecord
+  validates :name, presence: { message: "El nombre es requerido" }
+  validates :description, presence: { message: "La description es requerida" }
+  
+  validates :name, length: { maximun:200, minimum:2 }
+
+
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories
 end

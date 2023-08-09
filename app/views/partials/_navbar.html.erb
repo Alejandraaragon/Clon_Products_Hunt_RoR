@@ -13,8 +13,8 @@
         </button>
       </div>
       <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:w-auto lg:space-x-12">
-        <li><%= link_to "Nueva Categoria", class:"text-sm font-medium" %></li>
-        <li><%= link_to "Nuevo producto", class:"text-sm font-medium" %></li>
+        <li><%= link_to "Nuevo producto", new_product_path class:"text-sm font-medium" %></li>
+        <li><%= link_to "Nueva Categoria", root_path class:"text-sm font-medium" %></li>   
       </ul>
       <div class="hidden lg:flex">
         <%= form_tag search_products_path, method: :get do %>

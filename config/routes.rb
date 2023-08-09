@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'products', to: "products#index"
+  resources :categories
+
+
+  resources :products
+
   root "main#welcome"
 
 end
