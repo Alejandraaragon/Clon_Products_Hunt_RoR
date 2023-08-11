@@ -1,7 +1,5 @@
 module ProductsHelper
-    def simple_description(description)
-        description.truncate(30)
-    end
+  
     def date_format(date)
         meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
         mes = meses[date.strftime('%-m').to_i - 1]
@@ -10,4 +8,9 @@ module ProductsHelper
 
         "#{dia} del #{mes} del #{year}"
     end
+    
+    def simple_description(description)
+        description.truncate(30)
+    end
+
 end

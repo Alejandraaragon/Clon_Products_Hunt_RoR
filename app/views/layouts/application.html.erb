@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ClonHunt</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,23 +15,30 @@
 
   <body>
     <%= render "partials/messages" %>
-
-    <div class="container px-4 mx-auto">
-      <%= yield %>
-    </div>
+    <%= render "partials/navbar" %>
+    
+    <section class="">
+            <div class="container px-4 mx-auto">
+                <%= yield %>
+            </div>
+        </section>
   </body>
+  </html>
 
   <script>
-     var buttons = document.querySelectorAll('.message-close');
 
-     for(var i = 0; i < buttons.length; i++){
-        var button = buttons[i];
+  const close = document.querySelectorAll('.message-close');
+  const messages = document.querySelectorAll('.messages');
 
-        button.addEventListener('click', function(){
-          var message = document.getElementById("message-" + button.value)
-          message.style.display = 'none';
+  if (close.length) {
+    for (var i = 0; i < close.length; i++) {
+        close[i].addEventListener('click', function() {
+            for (var j = 0; j < messages.length; j++) {
+                messages[j].style.display = 'none';
+            }
         });
-     }
+    }
+}
   </script>
-</html>
+
  

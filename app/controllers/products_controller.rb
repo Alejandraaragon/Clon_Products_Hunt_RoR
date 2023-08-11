@@ -2,38 +2,59 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   
   def index
-    current_page = params[:page] || current_page = 1
-     @products = Product.where(visible:true).order('id DESC').paginate(page:current_page, per_page:6)
+    page = params[:page] || page = 1
+    @products = Product.paginate(page:page, per_page:6).order('id DESC')
   end
+
   def new
     @product = Product.new
   end
+
   def create
-    @product = Product.create product_params
-    if @product.persisted?
-      redirect_to product_path(@product), notice: "Producto creado con exito"
-    else
-      render :new, status: :unprocessable_entity
+    @product = Product.create(product_params)
+    
+    respond_to do |format|
+        if @product.persisted?
+            redirect_to products_path, notice: "Nuevo producto creado."
+        else
+            format.html { render :new, status: :unprocessable_entity }
+        end
     end
   end
 
+  def create_two
+      @product = Product.create(product_params)
+      if @product.persisted?
+          redirect_to products_path, notice: "Nuevo producto creado."
+      else
+          redirect_to new_product_path, notice: "Lo sentimos, no fue posible crear el producto."
+      end
+  end
+
   def show
+    @comment = Comment.new
+    @comments = @product.comments.order('id DESC')
   end
 
   def edit
   end
 
   def update
-    if @product.update product_params
-      redirect_to product_path(@product), notice: "El producto se actualizó de manera exitosa"
+    if @product.update(product_params)
+        redirect_to @product, notice: "Producto actualizado exitosamente."
     else
-      render :edit, status: :unprocessable_entity
+        redirect_to @product, notice: "Lo sentimos, no fue posible actualizar el producto."
     end
-  end
+end
 
   def destroy
     @product.destroy
-    redirect_to products_path, status: :see_other, notice: "El producto se elimino de forma exitosa"
+    redirect_to products_path, notice: "Producto eliminado exitosamente."
+  end
+
+  def search  
+    @q = params[:q]
+    @products = Product.where("title like ?", "%#{@q}%")
   end
 
   private
@@ -43,7 +64,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :visible, :image)
+    params.require(:product).permit(:name, :description, :image, :url, category_ids: [])
   end
 
   

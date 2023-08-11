@@ -1,15 +1,13 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  content    :string
+#  product_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Category < ApplicationRecord
-
-    scope :visible, -> { where(visible: true) }
-    
+class Comment < ApplicationRecord
+  belongs_to :product
 end
- 

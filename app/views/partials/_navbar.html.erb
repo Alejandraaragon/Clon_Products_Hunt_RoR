@@ -2,7 +2,7 @@
   <nav class="relative">
     <div class="flex justify-between items-center">
         <%= link_to root_path do %>
-            <%= image_tag "logoAA.png", size: '250x250' %>
+            <%= image_tag "logos/logoAA.png", size: '80x80' %>
         <% end %>
       <div class="lg:hidden">
         <button class="navbar-burger flex items-center p-3 hover:bg-gray-50 rounded">
@@ -13,8 +13,8 @@
         </button>
       </div>
       <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:w-auto lg:space-x-12">
-        <li><%= link_to "Nuevo producto", new_product_path class:"text-sm font-medium" %></li>
-        <li><%= link_to "Nueva Categoria", root_path class:"text-sm font-medium" %></li>   
+        <li><%= link_to "Nueva Categoria", new_category_path, class:"text-sm font-medium" %></li>
+        <li><%= link_to "Nuevo Producto", new_product_path, class:"text-sm font-medium" %></li>
       </ul>
       <div class="hidden lg:flex">
         <%= form_tag search_products_path, method: :get do %>
@@ -40,8 +40,8 @@
       </div>
       <div>
         <ul>
-          <li><%= link_to "Nueva Categoria", class:"text-sm font-medium" %></li>
-            <li><%= link_to "Nuevo producto", class:"text-sm font-medium" %></li>
+          <li><%= link_to "Nueva Categoria", new_category_path, class:"text-sm font-medium" %></li>
+            <li><%= link_to "Nuevo Producto", new_product_path, class:"text-sm font-medium" %></li>
         </ul>
       </div>
     </nav>
