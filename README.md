@@ -1,24 +1,36 @@
-# README
+# Crud Clon_Hunt
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tecnologías Utilizadas
 
-Things you may want to cover:
+* Ruby on Rails 
+* Sqlite
+* CSS
+* Bootstrap
 
-* Ruby version
+## Descripción
 
-* System dependencies
+#### Este es un CRUD que permite ingresar productos, con su respectivo titulo, descripcion e imagen como adjunto o URL. Tambien permite mostrarlos, editarlos y eliminarlos. Cuenta con su respectiva paginación.
 
-* Configuration
+#### Otra tarea de esta app es ingresar un comentario a un producto en particular. 
 
-* Database creation
+## Como se ve Crud Clon_Hunt
 
-* Database initialization
 
-* How to run the test suite
+* Listado de productos
 
-* Services (job queues, cache servers, search engines, etc.)
+![img1](/assets_git/hunt1.png)
 
-* Deployment instructions
 
-* ...
+* Detalle de productos
+
+![img2](/assets_git/hunt2.png)
+
+
+* Creacion de productos
+
+![img2](/assets_git/hunt3.png)
+
+
+* Editar productos
+
+![img2](/assets_git/hunt4.png)
